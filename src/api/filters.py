@@ -17,14 +17,14 @@ class UserSetFilter(FilterSet):
         longitude = float(self.request.user.longitude)
         min_distance = value.start
         max_distance = value.stop
-        MILESTOKELLOMETERS = 0.621371
+        milestokiolmetrs = 0.621371
 
         if min_distance:
             queryset = queryset.extra(
                 where=[f'SQRT(POW(69.1 * ({latitude} - latitude), 2)'
                        f' + POW(69.1 * (longitude - {longitude})'
                        f' * COS({latitude} / 57.3), 2)) >= %s::float'],
-                params=[float(min_distance) * MILESTOKELLOMETERS]
+                params=[float(min_distance) * milestokiolmetrs]
             )
 
         if max_distance:
@@ -32,7 +32,7 @@ class UserSetFilter(FilterSet):
                 where=[f'SQRT(POW(69.1 * ({latitude} - latitude), 2) '
                        f'+ POW(69.1 * (longitude - {longitude})'
                        f' * COS({latitude} / 57.3), 2)) <= %s::float'],
-                params=[float(max_distance) * MILESTOKELLOMETERS]
+                params=[float(max_distance) * milestokiolmetrs]
             )
 
         return queryset.filter()

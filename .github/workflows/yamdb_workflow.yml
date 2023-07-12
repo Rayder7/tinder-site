@@ -71,4 +71,3 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: ${{ github.workflow }} успешно выполнен! http://51.250.19.113/admin/
  
- 

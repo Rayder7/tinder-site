@@ -6,14 +6,8 @@ services:
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data/
-    environment:
-          - ENGINE=django.db.backends.postgresql_psycopg2
-          - NAME=postgres
-          - USER=postgres
-          - PASSWORD=postgres
-          - HOST=db
-          - PORT=5432
-          - POSTGRES_HOST_AUTH_METHOD=trust
+    env_file:
+      - ./.env
     ports:
       - "5432:5432"
     container_name: tinder_site_db
@@ -37,6 +31,8 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
+    env_file:
+      - ./.env
     depends_on:
       - backend
     container_name: tinder_site_nginx

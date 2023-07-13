@@ -1,4 +1,4 @@
-# Тестовое задание APPTRIX tinder_site
+l# Тестовое задание APPTRIX tinder_site
 
 Сайт для знакомств на API Django Rest Framework
 

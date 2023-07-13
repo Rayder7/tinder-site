@@ -10,7 +10,7 @@ class UserCreateSerializer(djoser.serializers.UserCreateSerializer):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'avatar', 'sex',
-                  'longitude', 'latitude''password', 'email')
+                  'longitude', 'latitude', 'password', 'email')
 
     def create(self, validated_data):
         avatar = validated_data.pop('avatar')

@@ -25,9 +25,10 @@ INSTALLED_APPS = [
     'api',
     'users',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'django_filters',
     'rest_framework_simplejwt',
-    'djoser',
 ]
 
 MIDDLEWARE = [
